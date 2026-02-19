@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+}
+
+.bg-image {
+    position: fixed;
+    inset: 0;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(16px) brightness(0.45);
+    transform: scale(1.15);
+    z-index: -2;
+}
+
+.bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.255);
+    z-index: -1;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: rgba(0,0,0,0.55);
+    border-radius: 18px;
+    padding: 45px 55px;
+    text-align: center;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.8s ease;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 35px 90px rgba(0,0,0,0.85);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 5rem;
+    font-weight: bold; /* Equivalent to 700 */
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 0 0 4px rgba(255,255,255,255.255);
+}
+
+.subtitle {
+    font-size: 1.09rem;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 30px;
+}
+
+.ip-box {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.25s ease;
+}
+
+.ip-box:hover {
+    transform: scale(1.03);
+    border-color: #7cfaff;
+}
+
+.ip-box span { font-size: 0.85rem; opacity: 0.6; margin-right: 8px; }
+.ip-box strong { font-weight: 700; color: #ffffff; }
+.ip-box .hint { display:block; font-size:0.75rem; margin-top:6px; opacity:0.5; }
+
+.ip-box.copied {
+    background: rgba(200,200,200,0.25); /* animación gris */
+    border-color: rgba(180,180,180,0.8);
+    box-shadow: 0 0 35px rgba(180,180,180,0.8);
+    animation: pop 0.4s ease;
+}
+
+.ip-box.copied strong { color: #555; }
+.ip-box.copied .hint { opacity:1; color:#555; }
+.ip-box.copied .hint::after { content:" ✓ COPIADO"; }
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* Botones 60/40 */
+.buttons {
+    display: flex;
+    justify-content: space-between; /* para separar los botones */
+    gap: 15px;
+    flex-wrap: nowrap; /* que no se vayan a otra línea */
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 36px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: 0.25s ease;
+}
+
+/* Panel 60% */
+.btn.panel {
+    flex: 0 0 60%;
+    background: #ffff;
+    color: #222;
+}
+
+.btn.panel:hover {
+    box-shadow: 0 0 25px rgba(255,255,255,255.255);
+    transform: translateY(-2px);
+}
+
+/* Discord 40% */
+.btn.discord {
+    flex: 0 0 38%;
+    background: #5865F2; /* color oficial Discord */
+    color: #fff;
+}
+
+.btn.discord:hover {
+    box-shadow: 0 0 25px rgba(88,101,242,0.7);
+    transform: translateY(-2px);
+}
+
+footer {
+    position: fixed;
+    bottom: 12px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.55);
+}

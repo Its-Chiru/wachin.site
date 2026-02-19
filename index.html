@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Wachin MC | Minecraft Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-image"></div>
+<div class="bg-overlay"></div>
+
+<div class="container">
+    <div class="card">
+        <h1>WACHIN MC</h1>
+        <p class="subtitle">Servidor Minecraft • Survival • Online 24/7</p>
+
+        <!-- IP copiable -->
+        <div class="ip-box" id="ipBox">
+            <span>IP</span>
+            <strong id="serverIp">wachin.site</strong>
+            <em class="hint">click para copiar</em>
+        </div>
+
+        <!-- Botones alineados 60/40 -->
+        <div class="buttons">
+            <a href="https://oracle.wachin.site" target="_blank" class="btn panel">
+                PANEL DE CONTROL
+            </a>
+            <a href="https://discord.gg/tu-servidor" target="_blank" class="btn discord">
+                DISCORD
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2026 Wachin MC
+</footer>
+
+<script>
+document.getElementById("ipBox").addEventListener("click", function() {
+    const ip = document.getElementById("serverIp").innerText;
+    navigator.clipboard.writeText(ip).then(() => {
+        this.classList.add("copied");
+        setTimeout(() => this.classList.remove("copied"), 1200);
+    }).catch(() => {
+        alert("No se pudo copiar la IP, intenta manualmente.");
+    });
+});
+</script>
+
+</body>
+</html>
